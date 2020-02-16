@@ -209,6 +209,18 @@
     <Compile Include="Migrations\202002151932595_AddCustomerBirthDate.Designer.cs">
       <DependentUpon>202002151932595_AddCustomerBirthDate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002152047294_AddMovieTable.cs" />
+    <Compile Include="Migrations\202002152047294_AddMovieTable.Designer.cs">
+      <DependentUpon>202002152047294_AddMovieTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002152105101_PopulateMoviesTable.cs" />
+    <Compile Include="Migrations\202002152105101_PopulateMoviesTable.Designer.cs">
+      <DependentUpon>202002152105101_PopulateMoviesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002161244575_CorrectDateInDb.cs" />
+    <Compile Include="Migrations\202002161244575_CorrectDateInDb.Designer.cs">
+      <DependentUpon>202002161244575_CorrectDateInDb.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\MembershipType.cs" />
@@ -325,6 +337,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002151932595_AddCustomerBirthDate.resx">
       <DependentUpon>202002151932595_AddCustomerBirthDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002152047294_AddMovieTable.resx">
+      <DependentUpon>202002152047294_AddMovieTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002152105101_PopulateMoviesTable.resx">
+      <DependentUpon>202002152105101_PopulateMoviesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002161244575_CorrectDateInDb.resx">
+      <DependentUpon>202002161244575_CorrectDateInDb.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
