@@ -221,8 +221,29 @@
     <Compile Include="Migrations\202002161244575_CorrectDateInDb.Designer.cs">
       <DependentUpon>202002161244575_CorrectDateInDb.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002241345203_AddActorsTable.cs" />
+    <Compile Include="Migrations\202002241345203_AddActorsTable.Designer.cs">
+      <DependentUpon>202002241345203_AddActorsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002261348181_AddBirthDateToActor.cs" />
+    <Compile Include="Migrations\202002261348181_AddBirthDateToActor.Designer.cs">
+      <DependentUpon>202002261348181_AddBirthDateToActor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002261755110_PopulateActorsTable.cs" />
+    <Compile Include="Migrations\202002261755110_PopulateActorsTable.Designer.cs">
+      <DependentUpon>202002261755110_PopulateActorsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002271939566_correctActrosBirthDate.cs" />
+    <Compile Include="Migrations\202002271939566_correctActrosBirthDate.Designer.cs">
+      <DependentUpon>202002271939566_correctActrosBirthDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002271953577_populateActorsMovies.cs" />
+    <Compile Include="Migrations\202002271953577_populateActorsMovies.Designer.cs">
+      <DependentUpon>202002271953577_populateActorsMovies.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Actor.cs" />
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -346,6 +367,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002161244575_CorrectDateInDb.resx">
       <DependentUpon>202002161244575_CorrectDateInDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002241345203_AddActorsTable.resx">
+      <DependentUpon>202002241345203_AddActorsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002261348181_AddBirthDateToActor.resx">
+      <DependentUpon>202002261348181_AddBirthDateToActor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002261755110_PopulateActorsTable.resx">
+      <DependentUpon>202002261755110_PopulateActorsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002271939566_correctActrosBirthDate.resx">
+      <DependentUpon>202002271939566_correctActrosBirthDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002271953577_populateActorsMovies.resx">
+      <DependentUpon>202002271953577_populateActorsMovies.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
