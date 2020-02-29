@@ -9,6 +9,10 @@ namespace WebApplication1.Models
 {
     public class Customer
     {
+        public Customer()
+            {
+                this.Movies = new HashSet<Movie>();
+            }
         public int ID { get; set; }
         [Required]
         [StringLength(255)]
@@ -18,6 +22,7 @@ namespace WebApplication1.Models
         public MembershipType MembershipType { get; set; }
         public byte MembershipTypeId { get; set; }
         public DateTime? birthDate { get; set; }
-        
+        public virtual ICollection<Movie> Movies { get; set; }
+
     }
 }

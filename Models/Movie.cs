@@ -13,7 +13,9 @@ namespace WebApplication1.Models
         public Movie()
         {
             this.Actors = new HashSet<Actor>();
+            this.Customers = new HashSet<Customer>();
         }
+        
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
@@ -24,6 +26,7 @@ namespace WebApplication1.Models
         [Required]
         public DateTime AddDate { get; set; }
         public virtual ICollection<Actor> Actors { get; set; }
+        public virtual ICollection<Customer> Customers { get; set; }
 
     }
 }

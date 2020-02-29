@@ -12,4 +12,11 @@
     {
     <li>Birth date : @Model.birthDate.Value.ToShortDateString()</li>
     }
+    <li>Movies rented: </li>
+    <ul>
+        @foreach (var m in Model.Movies)
+        {
+            <li>@Html.ActionLink(m.Name, "Details","Movies", new { id = m.Id}, null)</li>
+        }
+    </ul>
 </ul>

@@ -250,6 +250,14 @@
     <Compile Include="Migrations\202002272214378_AddActorsTable1.Designer.cs">
       <DependentUpon>202002272214378_AddActorsTable1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202002292016044_MovieCustomerManyToManyRelation.cs" />
+    <Compile Include="Migrations\202002292016044_MovieCustomerManyToManyRelation.Designer.cs">
+      <DependentUpon>202002292016044_MovieCustomerManyToManyRelation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002292021470_PopulateCustomerMoviesTable.cs" />
+    <Compile Include="Migrations\202002292021470_PopulateCustomerMoviesTable.Designer.cs">
+      <DependentUpon>202002292021470_PopulateCustomerMoviesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actor.cs" />
@@ -399,6 +407,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002272214378_AddActorsTable1.resx">
       <DependentUpon>202002272214378_AddActorsTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002292016044_MovieCustomerManyToManyRelation.resx">
+      <DependentUpon>202002292016044_MovieCustomerManyToManyRelation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002292021470_PopulateCustomerMoviesTable.resx">
+      <DependentUpon>202002292021470_PopulateCustomerMoviesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
