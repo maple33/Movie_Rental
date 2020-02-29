@@ -169,6 +169,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActorController.cs" />
     <Compile Include="Controllers\ApplaicationDbContext.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -240,6 +241,14 @@
     <Compile Include="Migrations\202002271953577_populateActorsMovies.cs" />
     <Compile Include="Migrations\202002271953577_populateActorsMovies.Designer.cs">
       <DependentUpon>202002271953577_populateActorsMovies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002272148270_addActorsToDbSet.cs" />
+    <Compile Include="Migrations\202002272148270_addActorsToDbSet.Designer.cs">
+      <DependentUpon>202002272148270_addActorsToDbSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202002272214378_AddActorsTable1.cs" />
+    <Compile Include="Migrations\202002272214378_AddActorsTable1.Designer.cs">
+      <DependentUpon>202002272214378_AddActorsTable1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -317,6 +326,8 @@
     <Content Include="Views\Movies\Random.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
+    <Content Include="Views\Actor\Details.cshtml" />
+    <Content Include="Views\Actor\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -382,6 +393,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002271953577_populateActorsMovies.resx">
       <DependentUpon>202002271953577_populateActorsMovies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002272148270_addActorsToDbSet.resx">
+      <DependentUpon>202002272148270_addActorsToDbSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202002272214378_AddActorsTable1.resx">
+      <DependentUpon>202002272214378_AddActorsTable1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

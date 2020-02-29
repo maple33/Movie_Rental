@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Movie_Rentals.Models.Actor>
+@{
+    ViewBag.Title = "Actors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Actors</h2>
+@if (!Model.Any())
+{
+    <p>We dont have any actors information yet.</p>
+}
+else
+{
+    <ul>
+        @foreach (var actor in Model)
+        {
+            <li>@Html.ActionLink(actor.Name, "Details", "Actor", new { id = actor.id}, null)</li>
+        }
+        
+    </ul>
+}
+
+
+
+

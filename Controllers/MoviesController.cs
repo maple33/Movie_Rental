@@ -8,6 +8,7 @@ using WebApplication1.Models;
 using WebApplication1.ViewModels;
 using Movie_Rentals.Models;
 
+
 namespace WebApplication1.Controllers
 {
     public class MoviesController : Controller
@@ -29,8 +30,8 @@ namespace WebApplication1.Controllers
         }
         public ActionResult Details(int id)
         {
-            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
-
+            var movie = _context.Movies.Include(a=>a.Actors).SingleOrDefault(m => m.Id == id);
+            
             if (movie == null)
                 return HttpNotFound();
             return View(movie);

@@ -9,4 +9,14 @@
     <li>Genre: @Model.Genre</li>
     <li>Release date: @Model.ReleaseDate.ToShortDateString()</li>
     <li>Add date: @Model.AddDate.ToShortDateString()</li>
+    <li>Starring:
+        <ul>
+            @foreach (var a in Model.Actors)
+            {
+                <li>@Html.ActionLink(a.Name, "Details", "Actor", new { id = a.id }, null)</li>
+            }
+        </ul>
+    
+     
+    </li>
 </ul>

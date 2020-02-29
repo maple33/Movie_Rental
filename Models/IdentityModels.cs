@@ -23,6 +23,7 @@ namespace Movie_Rentals.Models
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Movie> Movies { get; set; }
+        public DbSet<Actor> Actors { get; set; }
                 
 
         public ApplicationDbContext()
