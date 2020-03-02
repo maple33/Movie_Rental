@@ -5,7 +5,6 @@ using System.Data.Entity;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
-using WebApplication1.ViewModels;
 using Movie_Rentals.Models;
 
 
@@ -22,12 +21,13 @@ namespace WebApplication1.Controllers
         {
             _context.Dispose();
         }
-
+        
         public ActionResult Index() 
         {
             var movie = _context.Movies.ToList();
             return View(movie);
         }
+        
         public ActionResult Details(int id)
         {
             var movie = _context.Movies.Include(a=>a.Actors).SingleOrDefault(m => m.Id == id);
@@ -40,22 +40,16 @@ namespace WebApplication1.Controllers
         // GET: Movies/Random
         public ActionResult Random()
         {
-            var movie = new Movie() { Name = "Rock" };
-            var customers = new List<Customer>
-            {
-                new Customer { Name = "Customer 1"},
-                new Customer { Name = "Customer 2"},
-            };
+            //get last id and choose random number between 1 and last id. 
+            var lastId = _context.Movies.OrderByDescending(m=>m.Id).First().Id;
+            Random r = new Random();
+            int id = r.Next(1, lastId);
+            
+            var movie = _context.Movies.Include(a => a.Actors).SingleOrDefault(m => m.Id == id);
 
-            var viewModel = new RandomMovieViewModel
-            {
-                Movie = movie,
-                Customers = customers
-            };
-
-
-            return View(viewModel);
-
+            if (movie == null)
+                return HttpNotFound();
+            return View(movie);
         }
 
         // GET: Movies/Edit

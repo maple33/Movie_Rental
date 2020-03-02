@@ -1,4 +1,4 @@
-﻿@model WebApplication1.ViewModels.RandomMovieViewModel
+﻿@model WebApplication1.Models.Movie
 @{
     ViewBag.Title = "Random";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -7,17 +7,20 @@
 @{ 
     var className = Model.Customers.Count > 5 ? "popular" : null;
 }
-<h2 class="@className">@Model.Movie.Name</h2>
-@if (Model.Customers.Count == 0)
-{
-    <text>No one rented this movie before.</text>
-}
-else
-{
+<h2 class="@className">@Model.Name</h2>
 <ul>
-    @foreach (var customer in Model.Customers)
-    {
-        <li>@customer.Name</li>
-    }
+    <li>Genre: @Model.Genre</li>
+    <li>Release date: @Model.ReleaseDate.ToShortDateString()</li>
+    <li>Add date: @Model.AddDate.ToShortDateString()</li>
+    <li>
+        Starring:
+        <ul>
+            @foreach (var a in Model.Actors)
+            {
+                <li>@Html.ActionLink(a.Name, "Details", "Actor", new { id = a.id }, null)</li>
+            }
+        </ul>
+
+
+    </li>
 </ul>
-}
