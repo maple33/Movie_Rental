@@ -1,0 +1,31 @@
+﻿@model Movie_Rentals.ViewModels.NewCustomerViewModel
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customer form</h2>
+@using (Html.BeginForm("Save", "Customers"))
+{
+    <div class=" form-group">
+        @Html.LabelFor(m => m.Customer.Name)
+        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })
+    </div>
+    <div class=" form-group">
+        @Html.LabelFor(m => m.Customer.birthDate)
+        @Html.TextBoxFor(m => m.Customer.birthDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+    </div>
+    <div class=" form-group">
+        @Html.LabelFor(m => m.Customer.MembershipTypeId)
+        @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "NameOfMembershipType"), "Selet membership type", new { @class = "form-control" })
+    </div>
+    <div class="custom-control custom-checkbox">
+        <lable>
+            @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsletter) Subscribed to newsletter?
+        </lable>
+    </div>
+    <br>
+    @Html.HiddenFor(m=>m.Customer.ID)
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

@@ -19,4 +19,6 @@
             <li>@Html.ActionLink(m.Name, "Details","Movies", new { id = m.Id}, null)</li>
         }
     </ul>
+    
 </ul>
+<input type="button" value="Edit" onclick="@("window.location.href='" + @Url.Action("Edit", "Customers", new { id = Model.ID}) + "'");" />

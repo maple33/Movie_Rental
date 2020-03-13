@@ -13,15 +13,21 @@ namespace WebApplication1.Models
             {
                 this.Movies = new HashSet<Movie>();
             }
+
         public int ID { get; set; }
+
         [Required]
         [StringLength(255)]
-        public string Name { get; set; }
-        
+        public string Name { get; set; }        
         public bool IsSubscribedToNewsletter { get; set; }
         public MembershipType MembershipType { get; set; }
+
+        [Display(Name = "Membership type")]
         public byte MembershipTypeId { get; set; }
+
+        [Display(Name = "Date of birth")]
         public DateTime? birthDate { get; set; }
+
         public virtual ICollection<Movie> Movies { get; set; }
 
     }
