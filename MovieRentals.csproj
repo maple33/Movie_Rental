@@ -258,6 +258,14 @@
     <Compile Include="Migrations\202002292021470_PopulateCustomerMoviesTable.Designer.cs">
       <DependentUpon>202002292021470_PopulateCustomerMoviesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202003171740382_ActorModelCorrection.cs" />
+    <Compile Include="Migrations\202003171740382_ActorModelCorrection.Designer.cs">
+      <DependentUpon>202003171740382_ActorModelCorrection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202003171809445_ActorModelbirthdateChanges.cs" />
+    <Compile Include="Migrations\202003171809445_ActorModelbirthdateChanges.Designer.cs">
+      <DependentUpon>202003171809445_ActorModelbirthdateChanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actor.cs" />
@@ -337,6 +345,7 @@
     <Content Include="Views\Actor\Details.cshtml" />
     <Content Include="Views\Actor\Index.cshtml" />
     <Content Include="Views\Customers\New.cshtml" />
+    <Content Include="Views\Actor\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -414,6 +423,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202002292021470_PopulateCustomerMoviesTable.resx">
       <DependentUpon>202002292021470_PopulateCustomerMoviesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003171740382_ActorModelCorrection.resx">
+      <DependentUpon>202003171740382_ActorModelCorrection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202003171809445_ActorModelbirthdateChanges.resx">
+      <DependentUpon>202003171809445_ActorModelbirthdateChanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

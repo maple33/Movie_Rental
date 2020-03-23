@@ -8,7 +8,8 @@
 <ul>
     <li>Birth Date: @Model.BirthDate.ToShortDateString()</li>
     <li>Age: @Model.CalculateAge(Model.BirthDate)</li>
-    <li>Movies:
+    <li>
+        Movies:
         <ul>
             @foreach (var m in Model.Movies)
             {
@@ -18,3 +19,4 @@
     </li>
 
 </ul>
+<input type="button" value="Edit" onclick="@("window.location.href='" + @Url.Action("Edit", "Actor", new { id = Model.id}) + "'");" />

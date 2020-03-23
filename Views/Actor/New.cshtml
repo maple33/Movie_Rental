@@ -1,0 +1,22 @@
+﻿@model Movie_Rentals.Models.Actor
+@{
+    ViewBag.Title = "Actor form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Actor form</h2>
+@using (Html.BeginForm("Save", "Actor"))
+{
+    <div class=" form-group">
+        @Html.LabelFor(a => a.Name)
+        @Html.TextBoxFor(a => a.Name, new { @class = "form-control" })
+    </div>
+    <div class=" form-group">
+        @Html.LabelFor(a => a.BirthDate)
+        @Html.TextBoxFor(a => a.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+    </div>
+    <br>
+    @Html.HiddenFor(a => a.id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
