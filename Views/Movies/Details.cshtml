@@ -20,4 +20,5 @@
      
     </li>
 </ul>
-<input type="button" value="Edit" onclick="@("window.location.href='" + @Url.Action("Edit", "Actor", new { id = Model.Id}) + "'");" />
+<input type="button" value="Edit" onclick="@("window.location.href='" + @Url.Action("Edit", "Movies", new { id = Model.Id}) + "'");" />
+<input type="button" value="Add actors" onclick="@("window.location.href='" + @Url.Action("AddActors", "Movies", new { id = Model.Id}) + "'");" />

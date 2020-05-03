@@ -62,6 +62,8 @@ namespace Movie_Rentals.Controllers
         public ActionResult Edit(int id)
         {
             var actor = _context.Actors.SingleOrDefault(a => a.id == id);
+            if (actor == null)
+                return HttpNotFound();
 
             return View("New", actor);
         }

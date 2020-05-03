@@ -1,0 +1,23 @@
+﻿@model Movie_Rentals.ViewModels.AddActorViewModel
+@{
+    ViewBag.Title = "AddActors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Actors Form</h2>
+@using (Html.BeginForm("SaveActors", "Movies", FormMethod.Post))
+{
+
+    <ul>
+        @for (var i = 0; i< Model.Actors.Count; i++)
+        {
+            <li>
+                @Html.HiddenFor(x=>Model.Actors[i].id)
+                @Html.CheckBoxFor(x=>Model.Actors[i].IsSeclected)
+                @Html.DisplayFor(x=>Model.Actors[i].Name)
+            </li>
+        }
+    </ul>
+    @Html.HiddenFor(m => m.Movie.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}

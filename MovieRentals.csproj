@@ -266,6 +266,14 @@
     <Compile Include="Migrations\202003171809445_ActorModelbirthdateChanges.Designer.cs">
       <DependentUpon>202003171809445_ActorModelbirthdateChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005021459208_Add_IsSelected_to_actors.cs" />
+    <Compile Include="Migrations\202005021459208_Add_IsSelected_to_actors.Designer.cs">
+      <DependentUpon>202005021459208_Add_IsSelected_to_actors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005032211409_MovieActor_fix.cs" />
+    <Compile Include="Migrations\202005032211409_MovieActor_fix.Designer.cs">
+      <DependentUpon>202005032211409_MovieActor_fix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actor.cs" />
@@ -274,8 +282,10 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MovieActors.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\AddActorViewModel.cs" />
     <Compile Include="ViewModels\NewCustomerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -337,7 +347,6 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Movies\Edit.cshtml" />
     <Content Include="Views\Movies\Index.cshtml" />
     <Content Include="Views\Movies\Random.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
@@ -346,6 +355,8 @@
     <Content Include="Views\Actor\Index.cshtml" />
     <Content Include="Views\Customers\New.cshtml" />
     <Content Include="Views\Actor\New.cshtml" />
+    <Content Include="Views\Movies\New.cshtml" />
+    <Content Include="Views\Movies\AddActors.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -429,6 +440,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003171809445_ActorModelbirthdateChanges.resx">
       <DependentUpon>202003171809445_ActorModelbirthdateChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005021459208_Add_IsSelected_to_actors.resx">
+      <DependentUpon>202005021459208_Add_IsSelected_to_actors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005032211409_MovieActor_fix.resx">
+      <DependentUpon>202005032211409_MovieActor_fix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
