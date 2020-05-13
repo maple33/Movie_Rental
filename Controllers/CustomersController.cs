@@ -33,6 +33,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             if (!ModelState.IsValid)
