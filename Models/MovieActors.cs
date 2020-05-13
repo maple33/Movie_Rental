@@ -13,10 +13,10 @@ namespace Movie_Rentals.Models
     {
         [Key]
         [Column(Order = 2)]
-        public int Movie_id { get; set; }
+        public int MovieId { get; set; }
         [Key]
         [Column(Order = 1)]
-        public int Actor_id { get; set; }
+        public int ActorId { get; set; }
         public Movie Movie { get; set; }
         public Actor Actor { get; set; }
     }

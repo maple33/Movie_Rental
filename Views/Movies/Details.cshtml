@@ -1,24 +1,25 @@
-﻿@model WebApplication1.Models.Movie
+﻿@model Movie_Rentals.ViewModels.AddActorViewModel
 @{
-    ViewBag.Title = Model.Name;
+    ViewBag.Title = Model.Movie.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Name</h2>
+<h2>@Model.Movie.Name</h2>
 <ul>
-    <li>Genre: @Model.Genre</li>
-    <li>Release date: @Model.ReleaseDate.ToShortDateString()</li>
-    <li>Add date: @Model.AddDate.ToShortDateString()</li>
-    <li>Starring:
+    <li>Genre: @Model.Movie.Genre</li>
+    <li>Release date: @Model.Movie.ReleaseDate.ToShortDateString()</li>
+    <li>Add date: @Model.Movie.AddDate.ToShortDateString()</li>
+    <li>
+        Starring:
         <ul>
             @foreach (var a in Model.Actors)
             {
                 <li>@Html.ActionLink(a.Name, "Details", "Actor", new { id = a.id }, null)</li>
             }
         </ul>
-    
-     
+
+
     </li>
 </ul>
-<input type="button" value="Edit" onclick="@("window.location.href='" + @Url.Action("Edit", "Movies", new { id = Model.Id}) + "'");" />
-<input type="button" value="Add actors" onclick="@("window.location.href='" + @Url.Action("AddActors", "Movies", new { id = Model.Id}) + "'");" />
+<input type="button" value="Edit" onclick="@("window.location.href='" + @Url.Action("Edit", "Movies", new { id = Model.Movie.Id}) + "'");" />
+<input type="button" value="Add actors" onclick="@("window.location.href='" + @Url.Action("AddActors", "Movies", new { id = Model.Movie.Id}) + "'");" />

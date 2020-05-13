@@ -12,25 +12,23 @@ namespace Movie_Rentals.Migrations
                 "dbo.MovieActors",
                 c => new
                     {
-                        Actor_id = c.Int(nullable: false),
-                        Movie_id = c.Int(nullable: false),
-                        Actor_id1 = c.Int(),
-                        Movie_Id = c.Int(),
+                        ActorId = c.Int(nullable: false),
+                        MovieId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.Actor_id, t.Movie_id })
-                .ForeignKey("dbo.Actors", t => t.Actor_id1)
-                .ForeignKey("dbo.Movies", t => t.Movie_Id)
-                .Index(t => t.Actor_id1)
-                .Index(t => t.Movie_Id);
+                .PrimaryKey(t => new { t.ActorId, t.MovieId })
+                .ForeignKey("dbo.Actors", t => t.ActorId, cascadeDelete: true)
+                .ForeignKey("dbo.Movies", t => t.MovieId, cascadeDelete: true)
+                .Index(t => t.ActorId)
+                .Index(t => t.MovieId);
             
         }
         
         public override void Down()
         {
-            DropForeignKey("dbo.MovieActors", "Movie_Id", "dbo.Movies");
-            DropForeignKey("dbo.MovieActors", "Actor_id1", "dbo.Actors");
-            DropIndex("dbo.MovieActors", new[] { "Movie_Id" });
-            DropIndex("dbo.MovieActors", new[] { "Actor_id1" });
+            DropForeignKey("dbo.MovieActors", "MovieId", "dbo.Movies");
+            DropForeignKey("dbo.MovieActors", "ActorId", "dbo.Actors");
+            DropIndex("dbo.MovieActors", new[] { "MovieId" });
+            DropIndex("dbo.MovieActors", new[] { "ActorId" });
             DropTable("dbo.MovieActors");
             RenameTable(name: "dbo.MovieActors1", newName: "MovieActors");
         }

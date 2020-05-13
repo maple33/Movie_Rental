@@ -1,13 +1,13 @@
-﻿@model Movie_Rentals.Models.Actor
+﻿@model Movie_Rentals.ViewModels.ActorViewModel
 @{
-    ViewBag.Title = Model.Name;
+    ViewBag.Title = Model.Actor.Name;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Name</h2>
+<h2>@Model.Actor.Name</h2>
 <ul>
-    <li>Birth Date: @Model.BirthDate.ToShortDateString()</li>
-    <li>Age: @Model.CalculateAge(Model.BirthDate)</li>
+    <li>Birth Date: @Model.Actor.BirthDate.ToShortDateString()</li>
+    <li>Age: @Model.Actor.CalculateAge(Model.BirthDate)</li>
     <li>
         Movies:
         <ul>

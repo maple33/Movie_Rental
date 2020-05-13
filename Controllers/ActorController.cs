@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Data.Entity;
 using Movie_Rentals.Models;
+using Movie_Rentals.ViewModels;
+using WebApplication1.Models;
 
 namespace Movie_Rentals.Controllers
 {
@@ -30,11 +32,27 @@ namespace Movie_Rentals.Controllers
 
         public ActionResult Details(int id)
         {
-            var actor = _context.Actors.Include(m => m.Movies).SingleOrDefault(a => a.id == id);
+            var actor = _context.Actors.SingleOrDefault(a => a.id == id);
 
             if (actor == null)
                 return HttpNotFound();
-            return View(actor);
+
+            var listMoviesJoin = _context.MovieActors.Where(a => a.ActorId == id).ToList();
+            var listOfMovies = new List<Movie>();
+
+            foreach (var movieId in listMoviesJoin)
+            {
+                var movie = _context.Movies.Where(m => m.Id == movieId.MovieId).SingleOrDefault();
+                listOfMovies.Add(movie);
+            }
+
+            var viewModel = new ActorViewModel
+            {
+                Actor = actor,
+                Movies = listOfMovies
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult New()

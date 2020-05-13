@@ -31,11 +31,29 @@ namespace WebApplication1.Controllers
         //GET: Movies/Details        
         public ActionResult Details(int id)
         {
-            var movie = _context.Movies.Include(a=>a.Actors).SingleOrDefault(m => m.Id == id);
-            
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+
             if (movie == null)
                 return HttpNotFound();
-            return View(movie);
+
+            var listActorsJoin = _context.MovieActors.Where(m => m.MovieId == id).ToList();
+            var listOfActors = new List<Actor>();
+
+            foreach (var actorId in listActorsJoin)
+            {
+                var actor = _context.Actors.Where(a => a.id == actorId.ActorId).SingleOrDefault();
+                listOfActors.Add(actor);
+            }
+            
+
+            var viewModel = new AddActorViewModel
+            {
+                Movie = movie,
+                Actors = listOfActors
+            };
+
+
+            return View(viewModel);
         }
 
         public ActionResult New()
@@ -51,11 +69,28 @@ namespace WebApplication1.Controllers
             Random r = new Random();
             int id = r.Next(1, lastId);
             
-            var movie = _context.Movies.Include(a => a.Actors).SingleOrDefault(m => m.Id == id);
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
 
             if (movie == null)
                 return HttpNotFound();
-            return View(movie);
+
+            var listActorsJoin = _context.MovieActors.Where(m => m.MovieId == id).ToList();
+            var listOfActors = new List<Actor>();
+
+            foreach (var actorId in listActorsJoin)
+            {
+                var actor = _context.Actors.Where(a => a.id == actorId.ActorId).SingleOrDefault();
+                listOfActors.Add(actor);
+            }
+            
+            var viewModel = new AddActorViewModel
+            {
+                Movie = movie,
+                Actors = listOfActors
+            };
+
+
+            return View(viewModel);
         }
         //Save changes or add new movie to the database
         [HttpPost]
@@ -116,8 +151,8 @@ namespace WebApplication1.Controllers
                 {
                     _context.Set<MovieActors>().Add(new MovieActors
                         {
-                            Movie_id = movie.Id,
-                            Actor_id = actor.id
+                            MovieId = movie.Id,
+                            ActorId = actor.id
                         }
                         );
                     actor.IsSeclected = false;

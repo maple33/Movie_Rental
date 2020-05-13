@@ -26,6 +26,7 @@ namespace WebApplication1.Models
         public byte MembershipTypeId { get; set; }
 
         [Display(Name = "Date of birth")]
+        [min18yrsIfMember]
         public DateTime? birthDate { get; set; }
 
         public virtual ICollection<Movie> Movies { get; set; }
