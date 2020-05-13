@@ -28,7 +28,6 @@ namespace WebApplication1.Models
         [Display(Name = "Date of birth")]
         [min18yrsIfMember]
         public DateTime? birthDate { get; set; }
-
         public virtual ICollection<Movie> Movies { get; set; }
 
     }
