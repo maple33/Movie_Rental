@@ -5,13 +5,16 @@
 }
 
 <h2>Actors</h2>
+<input type="button" class="btn btn-primary" value="New" onclick="@("window.location.href='" + @Url.Action("New", "Actor") + "'");" />
+<br>
+<br>
 @if (!Model.Any())
 {
     <p>We dont have any actors information yet.</p>
 }
 else
 {
-    <ul>
+    <ul class=" list-unstyled">
         @foreach (var actor in Model)
         {
             <li>@Html.ActionLink(actor.Name, "Details", "Actor", new { id = actor.id}, null)</li>

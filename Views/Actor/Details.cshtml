@@ -7,7 +7,7 @@
 <h2>@Model.Actor.Name</h2>
 <ul>
     <li>Birth Date: @Model.Actor.BirthDate.ToShortDateString()</li>
-    <li>Age: @Model.Actor.CalculateAge(Model.BirthDate)</li>
+    <li>Age: @Model.Actor.CalculateAge(Model.Actor.BirthDate)</li>
     <li>
         Movies:
         <ul>
@@ -19,4 +19,4 @@
     </li>
 
 </ul>
-<input type="button" value="Edit" onclick="@("window.location.href='" + @Url.Action("Edit", "Actor", new { id = Model.id}) + "'");" />
+<input type="button" class="btn btn-primary" value="Edit" onclick="@("window.location.href='" + @Url.Action("Edit", "Actor", new { id = Model.Actor.id}) + "'");" />
