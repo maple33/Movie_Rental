@@ -22,7 +22,6 @@ namespace WebApplication1.Models
         public string Genre { get; set; }
         [Required]
         public DateTime ReleaseDate { get; set; }
-        [Required]
         public DateTime AddDate { get; set; }
         public virtual ICollection<Customer> Customers { get; set; }
 

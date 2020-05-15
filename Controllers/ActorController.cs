@@ -61,6 +61,7 @@ namespace Movie_Rentals.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Actor actor)
         {
             if (actor.id == 0)

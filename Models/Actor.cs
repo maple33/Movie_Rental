@@ -13,6 +13,7 @@ namespace Movie_Rentals.Models
         public int id { get; set; }
         [Required]
         public string Name { get; set; }
+        [Required]
         public DateTime BirthDate { get; set; }
         public bool IsSeclected { get; set; }
         public int CalculateAge  (DateTime BirthDate)

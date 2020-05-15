@@ -10,13 +10,19 @@
     <div class=" form-group">
         @Html.LabelFor(a => a.Name)
         @Html.TextBoxFor(a => a.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.Name)
     </div>
     <div class=" form-group">
         @Html.LabelFor(a => a.BirthDate)
         @Html.TextBoxFor(a => a.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(a => a.BirthDate)
     </div>
     <br>
     @Html.HiddenFor(a => a.id)
+    @Html.AntiForgeryToken()
     <button type="submit" class="btn btn-primary">Save</button>
 }
-
+@section scripts
+    {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -94,8 +94,12 @@ namespace WebApplication1.Controllers
         }
         //Save changes or add new movie to the database
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
+            if (!ModelState.IsValid)
+                return View("New", movie);
+
             if (movie.Id == 0)
             {
                 movie.AddDate = DateTime.Now;
