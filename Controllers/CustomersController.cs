@@ -71,13 +71,26 @@ namespace WebApplication1.Controllers
 
         public ActionResult Details(int id)
         {
-            //var customer = _context.Customers.SingleOrDefault(c => c.ID == id);
-            var customer = _context.Customers.Include(c => c.MembershipType).Include(m => m.Movies).SingleOrDefault(c => c.ID == id);
+            var customer = _context.Customers.Include(c=>c.MembershipType).SingleOrDefault(c => c.ID == id);
 
             if (customer == null)
                 return HttpNotFound();
+            var listOfMoviesJoin = _context.MovieCustomers.Where(c => c.CustomerId == id);
+            var listOfMovies = new List<Movie>();
 
-            return View(customer);
+            foreach (var movieId in listOfMoviesJoin)
+            {
+                var movie = _context.Movies.Where(m => m.Id == movieId.MovieId).SingleOrDefault();
+                listOfMovies.Add(movie);
+            }
+
+            var viewModel = new CustomerViewModel
+            {
+                Customer = customer,
+                Movies = listOfMovies
+            };
+
+            return View(viewModel);
         }
 
         public ActionResult Edit(int id)

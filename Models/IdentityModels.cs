@@ -26,6 +26,7 @@ namespace Movie_Rentals.Models
         public DbSet<Actor> Actors { get; set; }
         public DbSet<MembershipType> MembershipTypes { get; set; }
         public DbSet<MovieActors> MovieActors { get; set; }
+        public DbSet<MovieCustomer> MovieCustomers { get; set; }
         
         
 
