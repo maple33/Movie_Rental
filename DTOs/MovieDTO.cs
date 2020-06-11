@@ -8,12 +8,7 @@ using WebApplication1.Models;
 namespace Movie_Rentals.DTOs
 {
     public class MovieDTO
-    {
-        public MovieDTO()
-        {
-            this.Customers = new HashSet<Customer>();
-        }
-
+    {        
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
@@ -21,7 +16,6 @@ namespace Movie_Rentals.DTOs
         public string Genre { get; set; }
         [Required]
         public DateTime ReleaseDate { get; set; }
-        public DateTime AddDate { get; set; }
-        public virtual ICollection<Customer> Customers { get; set; }
+        public DateTime AddDate { get; set; }        
     }
 }

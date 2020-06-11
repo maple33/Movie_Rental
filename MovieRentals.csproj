@@ -192,6 +192,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="DTOs\ActorDTO.cs" />
+    <Compile Include="DTOs\ActorViewModelDTO.cs" />
     <Compile Include="DTOs\CustomerDTO.cs" />
     <Compile Include="DTOs\MovieDTO.cs" />
     <Compile Include="Global.asax.cs">
@@ -304,6 +305,10 @@
     <Compile Include="Migrations\202006021611006_CustomerMovie1.cs" />
     <Compile Include="Migrations\202006021611006_CustomerMovie1.Designer.cs">
       <DependentUpon>202006021611006_CustomerMovie1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006111202416_MovieModelFix.cs" />
+    <Compile Include="Migrations\202006111202416_MovieModelFix.Designer.cs">
+      <DependentUpon>202006111202416_MovieModelFix.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -490,6 +495,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006021611006_CustomerMovie1.resx">
       <DependentUpon>202006021611006_CustomerMovie1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006111202416_MovieModelFix.resx">
+      <DependentUpon>202006111202416_MovieModelFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

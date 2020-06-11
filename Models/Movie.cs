@@ -9,12 +9,7 @@ using Movie_Rentals.Models;
 namespace WebApplication1.Models
 {
     public class Movie
-    {
-        public Movie()
-        {
-           this.Customers = new HashSet<Customer>();
-        }
-        
+    {        
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
@@ -23,7 +18,6 @@ namespace WebApplication1.Models
         [Required]
         public DateTime ReleaseDate { get; set; }
         public DateTime AddDate { get; set; }
-        public virtual ICollection<Customer> Customers { get; set; }
-
+       
     }
 }

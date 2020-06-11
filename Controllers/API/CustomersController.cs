@@ -59,6 +59,7 @@ namespace Movie_Rentals.Controllers.API
             var customerInDb = _context.Customers.SingleOrDefault(c => c.ID == id);
             if (customerInDb == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
+
             Mapper.Map(customerDTO, customerInDb);
 
             _context.SaveChanges();
