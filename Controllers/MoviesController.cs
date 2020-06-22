@@ -167,8 +167,7 @@ namespace WebApplication1.Controllers
             
             return RedirectToAction("Details", "Movies", new { id = movie.Id });
         }
-        
-
+                
     }
 
 }

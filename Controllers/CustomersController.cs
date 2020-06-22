@@ -36,15 +36,17 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
-            if (!ModelState.IsValid)
-            {
-                var viewModel = new NewCustomerViewModel
-                {
-                    Customer = customer,
-                    MembershipTypes = _context.MembershipTypes.ToList()
-                };
-                return View("New", viewModel);
-            }
+            //ISSUE : every time I send a new customer details the model is invalid!
+            
+            //if (!ModelState.IsValid)
+            //{
+            //    var viewModel = new NewCustomerViewModel
+            //    {
+            //        Customer = customer,
+            //        MembershipTypes = _context.MembershipTypes.ToList()
+            //    };
+            //    return View("New", viewModel);
+            //}
 
             if (customer.ID == 0)
                 _context.Customers.Add(customer);
