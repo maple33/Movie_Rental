@@ -61,6 +61,13 @@ namespace Movie_Rentals.Controllers.API
             if (movieInDb == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
 
+            List<MovieActors> movieActors = _context.MovieActors.ToList();
+            foreach (var movie in movieActors)
+            {
+                if (movie.MovieId == id)
+                    _context.MovieActors.Remove(movie);
+            }
+
             _context.Movies.Remove(movieInDb);
             _context.SaveChanges();
         }
