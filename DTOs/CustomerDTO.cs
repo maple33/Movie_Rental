@@ -16,6 +16,7 @@ namespace Movie_Rentals.DTOs
         [StringLength(255)]
         public string Name { get; set; }
         public bool IsSubscribedToNewsletter { get; set; }
+        public MembershipTypeDTO MembershipType { get; set; }
 
         public byte MembershipTypeId { get; set; }
 

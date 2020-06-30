@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Movie_Rentals.DTOs;
 using Movie_Rentals.Models;
+using System.Data.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,9 +21,13 @@ namespace Movie_Rentals.Controllers.API
             _context = new ApplicationDbContext();
         }
 
+        //CHECK OUT INCLUDE
         public IEnumerable<CustomerDTO> GetCustomers()
         {
-            return _context.Customers.ToList().Select(Mapper.Map<Customer, CustomerDTO>);
+            return _context.Customers
+                .Include(c=>c.MembershipType)
+                .ToList()
+                .Select(Mapper.Map<Customer, CustomerDTO>);
         }
 
         public IHttpActionResult GetCustomer(int id)

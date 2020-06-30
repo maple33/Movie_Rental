@@ -16,12 +16,18 @@ namespace Movie_Rentals.App_Start
         {
             Mapper.CreateMap<Customer, CustomerDTO>();
             Mapper.CreateMap<CustomerDTO, Customer>();
+
             Mapper.CreateMap<Actor, ActorDTO>();
             Mapper.CreateMap<ActorDTO, Actor>();
+
             Mapper.CreateMap<ActorViewModel, ActorViewModelDTO>();
             Mapper.CreateMap<ActorViewModelDTO, ActorViewModel>();
+
             Mapper.CreateMap<Movie, MovieDTO>();
             Mapper.CreateMap<MovieDTO, Movie>();
+
+            Mapper.CreateMap<MembershipType, MembershipTypeDTO>();
+            Mapper.CreateMap<MembershipTypeDTO, MembershipType>();
         }
     }
 }
