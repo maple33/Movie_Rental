@@ -15,6 +15,7 @@ namespace Movie_Rentals.DTOs
         [Required]
         public DateTime BirthDate { get; set; }
         public bool IsSeclected { get; set; }
+        public string imgPath { get; set; }
         public int CalculateAge(DateTime BirthDate)
         {
             var age = DateTime.Now.Year - BirthDate.Year;

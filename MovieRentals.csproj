@@ -324,6 +324,10 @@
     <Compile Include="Migrations\202006251702036_Update2.Designer.cs">
       <DependentUpon>202006251702036_Update2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007031119575_addImgPathToActor.cs" />
+    <Compile Include="Migrations\202007031119575_addImgPathToActor.Designer.cs">
+      <DependentUpon>202007031119575_addImgPathToActor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actor.cs" />
@@ -455,6 +459,7 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\Images\404img.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -586,6 +591,7 @@
     <Content Include="Views\Actor\New.cshtml" />
     <Content Include="Views\Movies\New.cshtml" />
     <Content Include="Views\Movies\AddActors.cshtml" />
+    <Content Include="Views\Actor\UploadImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -696,6 +702,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006251702036_Update2.resx">
       <DependentUpon>202006251702036_Update2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007031119575_addImgPathToActor.resx">
+      <DependentUpon>202007031119575_addImgPathToActor.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

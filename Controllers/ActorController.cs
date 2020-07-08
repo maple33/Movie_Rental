@@ -75,9 +75,9 @@ namespace Movie_Rentals.Controllers
             }
             _context.SaveChanges();
 
-            return RedirectToAction("Details", "Actor", new { id = actor.id });
+            return View("UploadImage", actor);
         }
-
+                
         public ActionResult Edit(int id)
         {
             var actor = _context.Actors.SingleOrDefault(a => a.id == id);
@@ -85,6 +85,26 @@ namespace Movie_Rentals.Controllers
                 return HttpNotFound();
 
             return View("New", actor);
+        }
+
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase upload, int id)
+        {
+            var actor = _context.Actors.SingleOrDefault(a => a.id == id);
+            if (actor == null)
+                return HttpNotFound();
+
+            string fileName = actor.Name + ".png";
+
+            if (upload != null)
+            {                
+                upload.SaveAs(Server.MapPath("~/Content/Images/" + fileName));
+            }
+            
+            actor.imgPath = "/Content/Images/" + fileName;
+            _context.SaveChanges();
+
+            return RedirectToAction("Details", "Actor", new { actor.id });
         }
     }
 }

@@ -5,6 +5,17 @@
 }
 
 <h2>@Model.Actor.Name</h2>
+
+@if (File.Exists(Server.MapPath("/Content/Images/" + Model.Actor.Name + ".png")))
+{
+    <img src="@Model.Actor.imgPath">;
+}
+else
+{
+    <img src="~/Content/Images/404img.png">
+}
+
+
 <ul>
     <li>Birth Date: @Model.Actor.BirthDate.ToShortDateString()</li>
     <li>Age: @Model.Actor.CalculateAge(Model.Actor.BirthDate)</li>
