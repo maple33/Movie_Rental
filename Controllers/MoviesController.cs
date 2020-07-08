@@ -116,7 +116,7 @@ namespace WebApplication1.Controllers
             }
             _context.SaveChanges();
 
-            return RedirectToAction("Details", "Movies", new { id = movie.Id });
+            return View("UploadPoster", movie);
         }
         
         // GET: Movies/Edit
@@ -167,7 +167,26 @@ namespace WebApplication1.Controllers
             
             return RedirectToAction("Details", "Movies", new { id = movie.Id });
         }
-                
+
+        [HttpPost]
+        public ActionResult Upload(HttpPostedFileBase upload, int Id)
+        {
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == Id);
+            if (movie == null)
+                return HttpNotFound();
+
+            string fileName = movie.Name + ".png";
+            if (upload != null)
+            {
+                upload.SaveAs(Server.MapPath("~/Content/Images/" + fileName));
+            }
+
+            movie.posterPath = "/Content/Images/" + fileName;
+            _context.SaveChanges();
+
+            return RedirectToAction("Details", "Movies", new { id = movie.Id });
+        }
+
     }
 
 }

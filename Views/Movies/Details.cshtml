@@ -5,6 +5,14 @@
 }
 
 <h2>@Model.Movie.Name</h2>
+@if (File.Exists(Server.MapPath("/Content/Images/" + Model.Movie.Name + ".png")))
+{
+    <img src="@Model.Movie.posterPath">;
+}
+else
+{
+    <img src="~/Content/Images/404img.png">;
+}
 <ul>
     <li>Genre: @Model.Movie.Genre</li>
     <li>Release date: @Model.Movie.ReleaseDate.ToShortDateString()</li>

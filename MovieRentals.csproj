@@ -328,6 +328,10 @@
     <Compile Include="Migrations\202007031119575_addImgPathToActor.Designer.cs">
       <DependentUpon>202007031119575_addImgPathToActor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007081650583_posterPath.cs" />
+    <Compile Include="Migrations\202007081650583_posterPath.Designer.cs">
+      <DependentUpon>202007081650583_posterPath.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actor.cs" />
@@ -592,6 +596,7 @@
     <Content Include="Views\Movies\New.cshtml" />
     <Content Include="Views\Movies\AddActors.cshtml" />
     <Content Include="Views\Actor\UploadImage.cshtml" />
+    <Content Include="Views\Movies\UploadPoster.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -705,6 +710,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007031119575_addImgPathToActor.resx">
       <DependentUpon>202007031119575_addImgPathToActor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007081650583_posterPath.resx">
+      <DependentUpon>202007081650583_posterPath.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

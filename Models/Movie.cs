@@ -18,6 +18,7 @@ namespace WebApplication1.Models
         [Required]
         public DateTime ReleaseDate { get; set; }
         public DateTime AddDate { get; set; }
+        public string posterPath { get; set; }
        
     }
 }
