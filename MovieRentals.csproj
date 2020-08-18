@@ -332,6 +332,10 @@
     <Compile Include="Migrations\202007081650583_posterPath.Designer.cs">
       <DependentUpon>202007081650583_posterPath.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202007151520157_fix.cs" />
+    <Compile Include="Migrations\202007151520157_fix.Designer.cs">
+      <DependentUpon>202007151520157_fix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actor.cs" />
@@ -597,9 +601,11 @@
     <Content Include="Views\Movies\AddActors.cshtml" />
     <Content Include="Views\Actor\UploadImage.cshtml" />
     <Content Include="Views\Movies\UploadPoster.cshtml" />
+    <Content Include="Views\Movies\UploadMovie.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Videos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -713,6 +719,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007081650583_posterPath.resx">
       <DependentUpon>202007081650583_posterPath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202007151520157_fix.resx">
+      <DependentUpon>202007151520157_fix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

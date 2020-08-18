@@ -5,13 +5,15 @@
 }
 
 <h2>@Model.Movie.Name</h2>
-@if (File.Exists(Server.MapPath("/Content/Images/" + Model.Movie.Name + ".png")))
+@if (File.Exists(Server.MapPath(Model.Movie.posterPath + ".png")))
 {
-    <img src="@Model.Movie.posterPath">;
+    <img src="@Model.Movie.posterPath">
+
 }
 else
 {
-    <img src="~/Content/Images/404img.png">;
+    <img src="~/Content/Images/404img.png">
+
 }
 <ul>
     <li>Genre: @Model.Movie.Genre</li>
@@ -29,5 +31,14 @@ else
 
     </li>
 </ul>
+@if (File.Exists(Server.MapPath(Model.Movie.videoPath)))
+{
+    <video controls width="400" height="300">
+        <source src="@Model.Movie.videoPath + 1" type="video/mp4">
+        <source src="@Model.Movie.videoPath + 2" type="video/webm">
+        <source src="@Model.Movie.videoPath + 3" type="video/ogg">
+    </video>
+}
 <input type="button" class="btn btn-primary" value="Edit" onclick="@("window.location.href='" + @Url.Action("Edit", "Movies", new { id = Model.Movie.Id}) + "'");" />
 <input type="button" class="btn btn-primary" value="Add actors" onclick="@("window.location.href='" + @Url.Action("AddActors", "Movies", new { id = Model.Movie.Id}) + "'");" />
+<input type="button" class="btn btn-primary" value="Upload movie" onclick="@("window.location.href='" + @Url.Action("UploadMovie", "Movies", new { id = Model.Movie.Id}) + "'");" />

@@ -1,0 +1,21 @@
+﻿@model WebApplication1.Models.Movie
+@{
+    ViewBag.Title = "UploadMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+
+@using (Html.BeginForm("SaveVideo", "Movies", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <label for="mp4">Mp4:</label>
+    <input type="file" name="upload" id=" mp4" />
+    <label for="file1">Webm:</label>
+    <input type="file" name="upload" id=" webm" />
+    <label for="file1">Ogg:</label>
+    <input type="file" name="upload" id=" ogg" />
+    <br>
+    <input type="submit" class="btn btn-primary" value="Upload" />
+    @Html.HiddenFor(m => m.Id);
+}
+

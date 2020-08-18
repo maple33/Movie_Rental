@@ -4,8 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>UploadPoster</h2>
-@using (Html.BeginForm("Upload", "Movies", FormMethod.Post, new { enctype = "multipart/form-data" }))
+<h2>Upload Poster for @Model.Name</h2>
+@using (Html.BeginForm("UploadPoster", "Movies", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <input type="file" name="upload" />
     <br>

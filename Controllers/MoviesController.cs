@@ -21,8 +21,8 @@ namespace WebApplication1.Controllers
         {
             _context.Dispose();
         }
-        
-        public ActionResult Index() 
+
+        public ActionResult Index()
         {
             var movie = _context.Movies.ToList();
             return View(movie);
@@ -44,7 +44,7 @@ namespace WebApplication1.Controllers
                 var actor = _context.Actors.Where(a => a.id == actorId.ActorId).SingleOrDefault();
                 listOfActors.Add(actor);
             }
-            
+
 
             var viewModel = new AddActorViewModel
             {
@@ -65,10 +65,10 @@ namespace WebApplication1.Controllers
         public ActionResult Random()
         {
             //get last id and choose random number between 1 and last id. 
-            var lastId = _context.Movies.OrderByDescending(m=>m.Id).First().Id;
+            var lastId = _context.Movies.OrderByDescending(m => m.Id).First().Id;
             Random r = new Random();
             int id = r.Next(1, lastId);
-            
+
             var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
 
             if (movie == null)
@@ -82,7 +82,7 @@ namespace WebApplication1.Controllers
                 var actor = _context.Actors.Where(a => a.id == actorId.ActorId).SingleOrDefault();
                 listOfActors.Add(actor);
             }
-            
+
             var viewModel = new AddActorViewModel
             {
                 Movie = movie,
@@ -112,13 +112,13 @@ namespace WebApplication1.Controllers
                 movieInDb.Name = movie.Name;
                 movieInDb.Genre = movie.Genre;
                 movieInDb.ReleaseDate = movie.ReleaseDate;
-                
+
             }
             _context.SaveChanges();
 
             return View("UploadPoster", movie);
         }
-        
+
         // GET: Movies/Edit
         public ActionResult Edit(int id)
         {
@@ -139,37 +139,37 @@ namespace WebApplication1.Controllers
             var viewModel = new AddActorViewModel
             {
                 Movie = movie,
-                Actors =_context.Actors.ToList()
+                Actors = _context.Actors.ToList()
             };
 
             return View(viewModel);
         }
 
         [HttpPost]
-        public ActionResult SaveActors(List <Actor> Actors, Movie movie)
+        public ActionResult SaveActors(List<Actor> Actors, Movie movie)
         {
-            
+
             foreach (var actor in Actors)
             {
                 if (actor.IsSeclected == true)
                 {
                     _context.Set<MovieActors>().Add(new MovieActors
-                        {
-                            MovieId = movie.Id,
-                            ActorId = actor.id
-                        }
+                    {
+                        MovieId = movie.Id,
+                        ActorId = actor.id
+                    }
                         );
                     actor.IsSeclected = false;
                 }
-                
+
             }
             _context.SaveChanges();
-            
+
             return RedirectToAction("Details", "Movies", new { id = movie.Id });
         }
 
         [HttpPost]
-        public ActionResult Upload(HttpPostedFileBase upload, int Id)
+        public ActionResult UploadPoster(HttpPostedFileBase upload, int Id)
         {
             var movie = _context.Movies.SingleOrDefault(m => m.Id == Id);
             if (movie == null)
@@ -182,6 +182,39 @@ namespace WebApplication1.Controllers
             }
 
             movie.posterPath = "/Content/Images/" + fileName;
+            _context.SaveChanges();
+
+            return RedirectToAction("Details", "Movies", new { id = movie.Id });
+        }
+
+        public ActionResult UploadMovie(int id)
+        {
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == id);
+            return View(movie);
+        }
+
+        [HttpPost]
+        public ActionResult SaveVideo(IEnumerable<HttpPostedFileBase> uploads, int Id)
+        {
+            var movie = _context.Movies.SingleOrDefault(m => m.Id == Id);
+            if (movie == null)
+                return HttpNotFound();
+
+            string fileName = movie.Name;
+
+            foreach (var file in uploads)
+            {
+                for (var i = 1; i <= uploads.Count(); i++)
+                {
+                    if (file != null)
+                    {
+                        file.SaveAs(Server.MapPath("~/Content/Videos/" + fileName + i));
+                    }
+                }
+                
+            }
+
+            movie.videoPath = "/Content/Videos/" + fileName;
             _context.SaveChanges();
 
             return RedirectToAction("Details", "Movies", new { id = movie.Id });

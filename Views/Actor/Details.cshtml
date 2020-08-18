@@ -14,7 +14,9 @@ else
 {
     <img src="~/Content/Images/404img.png">
 }
-
+<br>
+<br>
+<input type="button" class="btn btn-primary" value="Upload image" onclick="@("window.location.href='" + @Url.Action("RedirectToImgUpload", "Actor", new { Model.Actor.id}) + "'");" />
 
 <ul>
     <li>Birth Date: @Model.Actor.BirthDate.ToShortDateString()</li>

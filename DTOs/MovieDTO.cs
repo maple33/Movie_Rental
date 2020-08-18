@@ -16,6 +16,8 @@ namespace Movie_Rentals.DTOs
         public string Genre { get; set; }
         [Required]
         public DateTime ReleaseDate { get; set; }
-        public DateTime AddDate { get; set; }        
+        public DateTime AddDate { get; set; }
+        public string posterPath { get; set; }
+        public string videoPath { get; set; }
     }
 }

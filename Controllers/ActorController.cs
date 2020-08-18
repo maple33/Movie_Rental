@@ -75,7 +75,7 @@ namespace Movie_Rentals.Controllers
             }
             _context.SaveChanges();
 
-            return View("UploadImage", actor);
+            return RedirectToAction("Details", "Actor", new { id = actor.id });
         }
                 
         public ActionResult Edit(int id)
@@ -85,6 +85,10 @@ namespace Movie_Rentals.Controllers
                 return HttpNotFound();
 
             return View("New", actor);
+        }
+        public ActionResult RedirectToImgUpload(Actor actor)
+        {
+            return View("UploadImage", actor);
         }
 
         [HttpPost]
@@ -104,7 +108,7 @@ namespace Movie_Rentals.Controllers
             actor.imgPath = "/Content/Images/" + fileName;
             _context.SaveChanges();
 
-            return RedirectToAction("Details", "Actor", new { actor.id });
+            return RedirectToAction("Details", "Actor", actor );
         }
     }
 }
