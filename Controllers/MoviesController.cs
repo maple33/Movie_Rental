@@ -97,8 +97,8 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
-            if (!ModelState.IsValid)
-                return View("New", movie);
+            //if (!ModelState.IsValid)
+            //    return View("New", movie);
 
             if (movie.Id == 0)
             {
@@ -116,7 +116,7 @@ namespace WebApplication1.Controllers
             }
             _context.SaveChanges();
 
-            return View("UploadPoster", movie);
+            return RedirectToAction("Details", "movies", new { id = movie.Id });
         }
 
         // GET: Movies/Edit
@@ -218,6 +218,11 @@ namespace WebApplication1.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Details", "Movies", new { id = movie.Id });
+        }
+
+        public ActionResult PosterUploadRedirect(Movie movie)
+        {
+            return View("UploadPoster", movie);
         }
 
     }

@@ -5,7 +5,7 @@
 }
 
 <h2>@Model.Movie.Name</h2>
-@if (File.Exists(Server.MapPath(Model.Movie.posterPath + ".png")))
+@if (File.Exists(Server.MapPath("/Content/Images/" + Model.Movie.Name + ".png")))
 {
     <img src="@Model.Movie.posterPath">
 
@@ -15,6 +15,9 @@ else
     <img src="~/Content/Images/404img.png">
 
 }
+<br>
+<br>
+<input type="button" class="btn btn-primary" value="Upload Poster" onclick="@("window.location.href='" + @Url.Action("PosterUploadRedirect", "Movies", new { id = Model.Movie.Id}) + "'");" />
 <ul>
     <li>Genre: @Model.Movie.Genre</li>
     <li>Release date: @Model.Movie.ReleaseDate.ToShortDateString()</li>
