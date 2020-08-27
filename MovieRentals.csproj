@@ -336,6 +336,10 @@
     <Compile Include="Migrations\202007151520157_fix.Designer.cs">
       <DependentUpon>202007151520157_fix.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008261437468_SeedUsers.cs" />
+    <Compile Include="Migrations\202008261437468_SeedUsers.Designer.cs">
+      <DependentUpon>202008261437468_SeedUsers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actor.cs" />
@@ -722,6 +726,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007151520157_fix.resx">
       <DependentUpon>202007151520157_fix.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008261437468_SeedUsers.resx">
+      <DependentUpon>202008261437468_SeedUsers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

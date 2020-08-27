@@ -64,6 +64,7 @@ namespace WebApplication1.Controllers
             return RedirectToAction("Details", "Customers", new { id = customer.ID});
         }
 
+        //[Authorize]
         public ViewResult Index()
         {
             return View();
