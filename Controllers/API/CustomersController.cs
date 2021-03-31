@@ -21,13 +21,28 @@ namespace Movie_Rentals.Controllers.API
             _context = new ApplicationDbContext();
         }
 
+        [HttpGet]
         //CHECK OUT INCLUDE
-        public IEnumerable<CustomerDTO> GetCustomers()
+        //public IEnumerable<CustomerDTO> GetCustomers()
+        //{
+        //    return _context.Customers
+        //        .Include(c=>c.MembershipType)
+        //        .ToList()
+        //        .Select(Mapper.Map<Customer, CustomerDTO>);
+        //}
+        public IHttpActionResult GetCustomers(string query = null)
         {
-            return _context.Customers
-                .Include(c=>c.MembershipType)
+            var customersQuery = _context.Customers
+                .Include(c => c.MembershipType);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                customersQuery = customersQuery.Where(c => c.Name.Contains(query));
+
+            var customerDtos = customersQuery
                 .ToList()
                 .Select(Mapper.Map<Customer, CustomerDTO>);
+
+            return Ok(customerDtos);
         }
 
         public IHttpActionResult GetCustomer(int id)
@@ -39,6 +54,7 @@ namespace Movie_Rentals.Controllers.API
 
             return Ok(Mapper.Map<Customer, CustomerDTO>(customer));
         }
+
 
         [HttpPost]
         public IHttpActionResult CreateCustomer(CustomerDTO customerDTO)

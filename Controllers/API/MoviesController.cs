@@ -20,9 +20,17 @@ namespace Movie_Rentals.Controllers.API
             _context = new ApplicationDbContext();
         }
 
-        public IEnumerable<MovieDTO> GetMovies()
+        public IEnumerable<MovieDTO> GetMovies(string query = null)
         {
-            return _context.Movies.ToList().Select(Mapper.Map<Movie,MovieDTO>);
+            var moviesQuery = _context.Movies
+                .Where(m => m.NumberAvailable > 0);
+
+            if (!String.IsNullOrWhiteSpace(query))
+                moviesQuery = moviesQuery.Where(m => m.Name.Contains(query));
+
+            return moviesQuery
+                .ToList()
+                .Select(Mapper.Map<Movie, MovieDTO>);
         }
 
         [HttpPost]

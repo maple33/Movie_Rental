@@ -28,6 +28,9 @@ namespace Movie_Rentals.App_Start
 
             Mapper.CreateMap<MembershipType, MembershipTypeDTO>();
             Mapper.CreateMap<MembershipTypeDTO, MembershipType>();
+
+            Mapper.CreateMap<Rental, NewRentalDTO>();
+            Mapper.CreateMap<NewRentalDTO, Rental>();
         }
     }
 }

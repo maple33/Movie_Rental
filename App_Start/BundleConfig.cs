@@ -14,7 +14,9 @@ namespace Movie_Rentals
                         "~/Scripts/bootstrap.js",
                         "~/Scripts/respond.js",
                         "~/Scripts/datatables/jquery.datatables.js",
-                        "~/Scripts/datatables/datatables.bootstrap.js"
+                        "~/Scripts/datatables/datatables.bootstrap.js",
+                        "~/Scripts/typeahead.bundle.js",
+                        "~/scripts/toastr.js"
                       ));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -28,6 +30,8 @@ namespace Movie_Rentals
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap_lumen.css",
                       "~/Content/datatables/css/datatables.bootstrap.css",
+                      "~/Content/typeahead.css",
+                      "~/content/toastr.css",
                       "~/Content/site.css"));
         }
     }

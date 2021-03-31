@@ -19,5 +19,7 @@ namespace Movie_Rentals.DTOs
         public DateTime AddDate { get; set; }
         public string posterPath { get; set; }
         public string videoPath { get; set; }
+        [Range(1, 20)]
+        public byte NumberInStock { get; set; }
     }
 }
